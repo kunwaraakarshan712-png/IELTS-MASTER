@@ -40,4 +40,11 @@ Environment variables
 
 Testing analytics locally
  - For local testing, you can set `ga-id` in `index.html` to a test GA4 id and deploy to Vercel/Netlify. To test server forwarding, set `LOG_WEBHOOK_URL` to a request inspector (e.g., https://webhook.site) and trigger interactions (WhatsApp CTA clicks, calculators, checklist).
+
+SEO & UI enhancements applied
+- JSON-LD Course schema added to `index.html` for better search understanding
+- Meta keywords, Open Graph preview image (placeholder) and Twitter card support
+- `sitemap.xml` and `robots.txt` added (replace `example.com` with your domain)
+- Premium glass-style UI: square glass cards and reveal animations (see `styles.css`)
+- Count-up number animations and subtle scroll reveal micro-interactions
 # IELTS-MASTER

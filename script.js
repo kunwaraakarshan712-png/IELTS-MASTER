@@ -164,4 +164,29 @@
   // Smooth scroll for anchor links
   document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click', function(e){e.preventDefault(); const id=this.getAttribute('href').slice(1); const el=document.getElementById(id); if(el) el.scrollIntoView({behavior:'smooth',block:'start'}); }));
 
+  // Reveal on scroll + count-up numbers
+  try{
+    const io = new IntersectionObserver((entries)=>{
+      entries.forEach(entry=>{
+        if(entry.isIntersecting){
+          entry.target.classList.add('in-view');
+          // If it contains countups, animate
+          entry.target.querySelectorAll && entry.target.querySelectorAll('.countup').forEach(el=>{
+            const target = parseFloat(el.getAttribute('data-target')) || parseFloat(el.textContent) || 0;
+            if(!el._count_started){
+              el._count_started = true;
+              let current = 0; const steps = 30; const stepTime = 16; const increment = target/steps;
+              const iv=setInterval(()=>{ current += increment; if(current >= target){ el.textContent = target.toFixed( (target%1===0)?0:1 ); clearInterval(iv); } else { el.textContent = (Math.round(current*10)/10).toFixed((target%1===0)?0:1); } }, stepTime);
+            }
+          });
+        }
+      });
+    },{threshold:0.18});
+    document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+    // Also observe top-level elements with countup not inside reveal
+    document.querySelectorAll('.countup').forEach(el=>{
+      if(el.closest('.reveal')) return; io.observe(el);
+    });
+  }catch(e){/* graceful */}
+
 })();

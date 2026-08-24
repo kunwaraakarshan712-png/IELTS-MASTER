@@ -8,7 +8,17 @@
   <!-- Google Search Console Verification Tag -->
   <meta name="google-site-verification" content="KUk1BWvpc7FkH9nBtjTTP6Vm0QsynYZ5Ma7dCumiK1g">
 
-  <!-- CookieHub Consent Banner -->
+  <!-- 1. Set Google Consent Defaults (Allows tag detection without violating privacy) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      'ad_storage': 'denied',
+      'analytics_storage': 'denied'
+    });
+  </script>
+
+  <!-- 2. CookieHub Consent Banner -->
   <script src="https://cdn.cookiehub.eu/c2/ac7562be.js"></script>
   <script type="text/javascript">
     document.addEventListener("DOMContentLoaded", function(event) {
@@ -17,13 +27,10 @@
     });
   </script>
 
-  <!-- Google Analytics Tag (gtag.js) -->
+  <!-- 3. Google Analytics Tag (gtag.js) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-HHFP1HKR3T"></script>
   <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-HHFP1HKR3T');
   </script>
 </head>

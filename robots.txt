@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
-Sitemap: https://example.com/sitemap.xml
-# Replace example.com with your site domain
+
+Sitemap: https://ielts-rho-six.vercel.app/sitemap.xml
